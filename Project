@@ -1,4 +1,8 @@
 import requests
+import sys 
+
+stdoutOrigin=sys.stdout 
+sys.stdout = open("whether", "w")
 from datetime import datetime
 
 api_key = '9c4c2643e31e15e21ce56ebe8d6dc1e9'
@@ -22,3 +26,5 @@ print ("Current temperature is: {:.2f} deg C".format(temp_city))
 print ("Current weather desc  :",weather_desc)
 print ("Current Humidity      :",hmdt, '%')
 print ("Current wind speed    :",wind_spd ,'kmph')
+sys.stdout.close()
+sys.stdout=stdoutOrigin
